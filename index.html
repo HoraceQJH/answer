@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+		<script>
+			function log()
+			{
+				var password=document.getElementById("password").value;
+				var md5_password=md5(password);
+				if(md5_password=="d7e265c83d445e1ac6ec2e87530bf77f")
+				{
+					document.getElementById("index").style.backgroundImage="url(images/index-background.jpg)";
+					document.getElementById("login").style.display="none";
+					document.getElementById("content").style.display="inline";
+				}
+				else
+					alert("密码错误！请再试！");
+			}
+			function showhiddentext()
+			{
+				document.getElementById("index").style.display="none";
+				document.getElementById("hiddentext").style.display="inline";
+			}
+		</script>
+		<title>请登录！</title>
+	</head>
+	<body>
+		<div class="index" id="index">
+			<div class="login" id="login">
+				<div class="center">
+					<h1 class="login-h1">登陆</h1>
+					<input id="password" type="password" autocomplete="off" placeholder="密码" />
+					<button onclick="log()">登陆</button>
+				</div>
+			</div>
+			<div class="content" id="content">
+				<div class="transbox">
+					<h1>欢迎来到天一中学！</h1>
+					<p>为了使各位新生更好地适应天一的高中生活，以下提供各科的暑假作业。</p>
+					<div class="table">
+						<table>
+							<tr><td>语文</td>
+								<td><a href="ans/p1~p9.html">p1~p9</a></td>
+							</tr>
+							<tr><td>数学</td>
+								<td><a href="ans/p10~p21.html">p10~p21</a></td>
+							</tr>
+							<tr><td>英语</td>
+								<td><a href="ans/p22~p29.html">p22~p29</a></td>
+							</tr>
+							<tr><td>物理</td>
+								<td><a href="ans/p30~p35.html">p30~p35</a></td>
+							</tr>
+							<tr><td>化学</td>
+								<td><a href="ans/p36~p37.html">p36~p37</a></td>
+							</tr>
+							<tr><td>生物</td>
+								<td><a href="ans/p38~p39.html">p38~p39</a></td>
+							</tr>
+							</tr>
+						</table>
+					</div>
+					<h1>内部资料！！！请勿外传！！！</h1>
+					<p>作者QQ:1913512127</p>
+				</div>
+				<div id="music" class="music">
+					<audio controls="controls">
+						<source src="media/index-bgm.mp3" type="audio/mp3" />
+						你的浏览器不支持MP3音乐。
+					</audio>
+				</div>
+			</div>
+		</div>
+		<div id="hiddentext">
+			<h1>恭喜你！找到了隐藏的文字！</h1>
+			<h2>for dsy</h2>
+		</div>
+		<script>
+			document.getElementById("login").style.display="inline";
+			document.getElementById("content").style.display="none";
+			document.getElementById("hiddentext").style.display="none";
+			document.getElementById("index").style.backgroundImage="url(images/login-background.jpg)";
+		</script>
+	</body>
+</html>
