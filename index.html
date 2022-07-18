@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="jquery-3.3.1.min.js"></script>
+		<script src="bootstrap.bundle.min.js"></script>
 		<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
 		<script>
 			function log()
@@ -22,6 +26,33 @@
 				document.getElementById("index").style.display="none";
 				document.getElementById("hiddentext").style.display="inline";
 			}
+			function cAlert(html) // New Alert
+			{
+				$(document.body).append(`<div class="modal fade" id="cAlert" tabindex="-1">
+					<div class="modal-dialog"><div class="modal-content">
+					<div class="modal-body" style="text-align:center">${html}</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">确认</button>
+					</div></div></div></div>`);
+				$("#cAlert").modal("show").on("shown.bs.modal",
+					function ()
+					{
+					$("#cAlert .btn-secondary").trigger("focus");
+					}
+				);
+				return new Promise(
+					function (resolve, reject)
+					{
+					$("#cAlert").on("hidden.bs.modal",
+						function () 
+						{
+						$("#cAlert").remove();
+						resolve();
+						}
+					);
+					}
+				);
+			}
 		</script>
 		<title>请登录！</title>
 	</head>
@@ -30,7 +61,7 @@
 			<div class="login" id="login">
 				<div class="center">
 					<h1 class="login-h1">登陆</h1>
-					<input id="password" type="password" autocomplete="off" placeholder="密码" />
+					<input class="niceinput" id="password" type="password" autocomplete="off" placeholder="密码" />
 					<button onclick="log()">登陆</button>
 				</div>
 			</div>
@@ -62,7 +93,10 @@
 						</table>
 					</div>
 					<h1>内部资料！！！请勿外传！！！</h1>
-					<p>作者QQ:1913512127</p>
+					<p>作者QQ:1913512127 更新时间：每天上午10:00，晚上8:30（其余时间随缘更新）</p>
+					<div class="button" onclick="cAlert($('#log').html())" style="position: absolute; top: 10px; right: 10px;">
+						<img src="images/warning_black_24dp.png">
+					</div>
 				</div>
 				<div id="music" class="music">
 					<audio controls="controls">
@@ -70,6 +104,22 @@
 						你的浏览器不支持MP3音乐。
 					</audio>
 				</div>
+				<div id="log" style="display:none;">
+					<div style="text-align: left;">
+						<b>version:1.1</b> <br>
+					  	<b>date:2022.7.19</b> <br>
+					  	<ul>
+							<li>增加了日志，修改部分内容。</li>
+							<li>上传了数学作业p18~p21的内容。</li>
+					  	</ul><br>
+					  	<b>version:1.0.0</b> <br>
+					  	<b>date:2022.7.18</b> <br>
+					  	<ul>
+							<li>创建了网站的基本内容。</li>
+							<li>？？？</li>
+					  	</ul><br>
+					</div>
+				  </div>
 			</div>
 		</div>
 		<div id="hiddentext">
