@@ -11,10 +11,10 @@ html,body
     letter-spacing:1px;   
     text-align:center;   
 }
-input
+.niceinput
 {   
     width:278px;   
-    height:18px;   
+    height:36px;   
     margin-bottom:10px;   
     outline:none;   
     padding:10px;   
@@ -84,7 +84,8 @@ div.index
 	width:100%;
 	background-size:cover;
 }
-div.index::before{
+div.index::before
+{
 	content: '';
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
@@ -123,4 +124,19 @@ div.transbox p
 	margin:5%;
 	font-weight:bold;
 	color:black;
+}
+.button
+{
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 4px;
+	padding: 12px;
+	overflow: hidden;
+	vertical-align: middle;
+	cursor: pointer;
+	height: 48px;
+	width: 48px;
+	white-space: nowrap;
+	font: 13px/27px Roboto, RobotoDraft, Arial, sans-serif;
+	z-index: 986;
 }
